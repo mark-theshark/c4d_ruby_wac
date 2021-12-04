@@ -2,24 +2,11 @@ version: 0.2
 workspace:
   type: docker
   specs:
-    kubernetes:
+    docker:
       image:
         value: index.docker.io/marktmilligan/ruby-2-6-6:latest
       container-based-vm:
         value: false
-      cpu: 
-        value: 1
-      memory:
-        value: 1 
-      disk:
-        value: 10
-      gpu-count:
-        value: 0
-      labels:
-        value:
-          com.coder.custom.ruby.version: "2.6.6"
-          com.coder.custom.rails.version: "6.1.0"    
-          com.coder.custom.chargeback: "rubyonrails_team64"
   configure:
     start:
       value:
