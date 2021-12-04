@@ -6,11 +6,8 @@ Press the button to authenticate into a Coder instance and execute the coder.yam
 
 ###### https://coder.com/docs/workspaces/workspaces-as-code
 
-###### mark.demo
-[![Open in Coder](https://cdn.coder.com/embed-button.svg)](https://mark.demo.coder.com/wac/build?template_oauth_service=github&template_url=git@github.com:mtm20176/ruby_wac.git&template_ref=master&template_filepath=.coder/coder.yaml)
-
-###### demo.cdr
-[![Open in Coder](https://cdn.coder.com/embed-button.svg)](https://demo.cdr.dev/wac/build?template_oauth_service=github&template_url=git@github.com:mtm20176/ruby_wac.git&template_ref=master&template_filepath=.coder/coder.yaml)
+###### localhost
+[![Open in Coder](https://cdn.coder.com/embed-button.svg)](http://localhost:7080/wac/build?template_oauth_service=github&template_url=git@github.com:mtm20176/c4d_ruby_wac.git&template_ref=main&template_filepath=.coder/coder.yaml)
 
 ###### Notes / To run this app after cloning, we recommend:
 
