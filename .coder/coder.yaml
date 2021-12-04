@@ -1,0 +1,93 @@
+version: 0.2
+workspace:
+  type: docker
+  specs:
+    kubernetes:
+      image:
+        value: index.docker.io/marktmilligan/ruby-2-6-6:latest
+      container-based-vm:
+        value: false
+      cpu: 
+        value: 1
+      memory:
+        value: 1 
+      disk:
+        value: 10
+      gpu-count:
+        value: 0
+      labels:
+        value:
+          com.coder.custom.ruby.version: "2.6.6"
+          com.coder.custom.rails.version: "6.1.0"    
+          com.coder.custom.chargeback: "rubyonrails_team64"
+  configure:
+    start:
+      value:
+        - name: install 1 Ruby vscode extensions (vsix) from open vsx
+          continue-on-error: true
+          directory: /home/coder/
+          shell: /bin/bash
+          command: SERVICE_URL=https://open-vsx.org/vscode/gallery ITEM_URL=https://open-vsx.org/vscode/item /var/tmp/coder/code-server/bin/code-server --install-extension rebornix.ruby          
+        - name: "set ssh keys and clone and build (dependencies) for fifthster ruby on rails project"
+          continue-on-error: true
+          directory: /home/coder/
+          shell: /bin/bash
+          command: |
+            ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+            REPO_1_PATH=$HOME/fifthster
+            REPO_2_PATH=$HOME/db
+            REPO_3_PATH=$HOME/soysoys
+            REPO_4_PATH=$HOME/rubyonrails            
+            if [ -d $REPO_1_PATH ]; then
+              echo 'fifthster list repo already exists - skip clone'
+            else
+              git clone git@github.com:mtm20176/fifthster.git 
+            fi  
+            if [ -d $REPO_2_PATH ]; then
+              echo 'db repo already exists - skip clone'
+            else
+              git clone git@github.com:mtm20176/db.git 
+            fi  
+            if [ -d $REPO_3_PATH ]; then
+              echo 'soysoys social bookmarking repo already exists - skip clone'
+            else
+              git clone git@github.com:mtm20176/soysoys.git 
+            fi 
+            if [ -d $REPO_4_PATH ]; then
+              echo 'employee survey repo already exists - skip clone'
+            else
+              git clone git@github.com:mtm20176/rubyonrails.git 
+            fi                        
+            cd $REPO_1_PATH
+            bundle update 
+            cd $REPO_3_PATH
+            bundle update 
+            cd $REPO_4_PATH
+            bundle install 
+            rails s -p 3000 -b 0.0.0.0 -d                         
+        - name: "install fzf fuzzy find"
+          continue-on-error: true
+          directory: /home/coder/
+          shell: /bin/bash
+          command: |
+            sudo apt update
+            sudo apt install fzf
+        - name: "install vim editor"
+          continue-on-error: true
+          directory: /home/coder/
+          shell: /bin/bash
+          command: sudo apt install vim              
+  dev-urls:
+    value:
+      - name: socialbookmarking
+        port: 3001
+        scheme: http
+        access: public
+      - name: employeesurvey
+        port: 3000
+        scheme: http
+        access: authed
+      - name: lists
+        port: 3002
+        scheme: http
+        access: org
