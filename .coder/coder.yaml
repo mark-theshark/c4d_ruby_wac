@@ -1,12 +1,10 @@
 version: 0.2
 workspace:
-  type: kubernetes
+  type: docker
   specs:
-    kubernetes:
+    docker:
       image:
         value: index.docker.io/marktmilligan/ruby-2-6-6:latest
-      container-based-vm:
-        value: false
   configure:
     start:
       value:
