@@ -1,4 +1,4 @@
-# Ruby-and_Rails-related Workspaces as code configuration
+# Ruby-on-Rails-related Workspaces as code configuration
 
 This WAC file for Coder for Docker - uses Coder Technologies' Workspaces as code innovation to automate and configure-as-code the parameters of a data science-related workspace ( aka development environment )
 
