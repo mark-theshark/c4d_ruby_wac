@@ -67,7 +67,7 @@ workspace:
       - name: socialbookmarking
         port: 3001
         scheme: http
-        access: public
+        access: authed
       - name: employeesurvey
         port: 3000
         scheme: http
