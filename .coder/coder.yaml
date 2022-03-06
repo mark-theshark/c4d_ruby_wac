@@ -4,7 +4,7 @@ workspace:
   specs:
     docker:
       image:
-        value: index.docker.io/marktmilligan/ruby-2-6-6:latest
+        value: index.docker.io/marktmilligan/ruby-2-7-2:latest
   configure:
     start:
       value:
