@@ -6,7 +6,7 @@ Press the button to authenticate into a Coder instance and execute the coder.yam
 
 ###### https://coder.com/docs/workspaces/workspaces-as-code
 
-###### localhost
+###### localhost:7080
 [![Open in Coder](https://cdn.coder.com/embed-button.svg)](http://localhost:7080/wac/build?template_oauth_service=github&template_url=git@github.com:mtm20176/c4d_ruby_wac.git&template_ref=main&template_filepath=.coder/coder.yaml)
 
 ###### Notes / To run this app after cloning, we recommend:
